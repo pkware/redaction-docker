@@ -1,4 +1,4 @@
-FROM eclipse-temurin:11
+FROM eclipse-temurin:17
 
 # We need Tesseract 4.1.x
 RUN apt-get update \
