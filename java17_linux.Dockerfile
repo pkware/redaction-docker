@@ -13,7 +13,9 @@ ENV GRADLE_OPTS=-Dkotlin.compiler.execution.strategy="in-process"
 # Add a new user "nonRoot" with user id 1234 to this group.
 # This user will be used by bitbucket-pipelines.yml files.
 RUN groupadd --gid 1234 newgroup
-RUN useradd -g newgroup --uid 1234 nonRootUser
-
+RUN useradd -g newgroup --uid 1234 -m nonRootUser
+# change the working directory to the home of the new user
+WORKDIR /home/nonRootUser
+# makes the image runs with the nonRootUser as default user
 USER nonRootUser
 RUN whoami
