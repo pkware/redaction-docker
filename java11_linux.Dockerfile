@@ -1,4 +1,7 @@
-FROM eclipse-temurin:11
+# Pinned to the final focal-based Adoptium JDK 11 build.
+# Focal is required because the alex-p Tesseract PPA does not publish for jammy or
+# newer Ubuntu codenames.
+FROM eclipse-temurin:11.0.27_6-jdk-focal
 
 # We need Tesseract 4.1.x
 RUN apt-get update \
